@@ -93,5 +93,5 @@ class Labyrinthe {
     public static Labyrinthe chargerLabyrinthe(String nom) {
         throw new Error("TODO");
     }
-
+    //TODO Ecrire la méthode chargeant le labyrinthe
 }
