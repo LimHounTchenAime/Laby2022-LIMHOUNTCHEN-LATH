@@ -3,7 +3,6 @@
  */
 class Labyrinthe {
 
-
     char getChar(int x, int y) {
         throw new Error("TODO");
     }
