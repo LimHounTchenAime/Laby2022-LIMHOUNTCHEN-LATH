@@ -23,10 +23,6 @@ public class Position {
     }
 
     /**
-     * @param x, postion en x
-     * @param y, position en y
-     */
-    /**
      * contructeur de Position
      * @param x, coord en x
      * @param y, coord en y
