@@ -9,6 +9,7 @@ class PositionTest {
         Position p = new Position(2,6);
         p.deplacer(Labyrinthe.HAUT);
         assertEquals(1,p.getDx(),"x devrait etre egal 1");
+
         //Test de déplacement de x,y
         p.deplacer(Labyrinthe.BAS);
         p.deplacer(Labyrinthe.GAUCHE);
@@ -22,6 +23,8 @@ class PositionTest {
         Position p = new Position(-4,-7);
         p.deplacer(Labyrinthe.BAS);
         assertEquals(-3,p.getDx(),"x != -3");
+
+        //test avec deplacement des deux coordonnes
         p.deplacer(Labyrinthe.HAUT);
         p.deplacer(Labyrinthe.GAUCHE);
         assertEquals(-4,p.getDx()," x != -3" );
