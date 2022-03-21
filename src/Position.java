@@ -9,13 +9,16 @@ public class Position {
 
     /**
      * Getter
+     *
      * @return retourne position en x
      */
     public int getDx() {
         return dx;
     }
+
     /**
      * Getter
+     *
      * @return retourne position en y
      */
     public int getDy() {
@@ -24,6 +27,7 @@ public class Position {
 
     /**
      * contructeur de Position
+     *
      * @param x, coord en x
      * @param y, coord en y
      */
