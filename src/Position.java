@@ -1,12 +1,4 @@
 public class Position {
-    /**
-     * Constante de direction
-     */
-    public static final String HAUT = "haut";
-    public static final String BAS = "bas";
-    public static final String GAUCHE = "gauche";
-    public static final String DROITE = "droite";
-
 
     /**
      * dx, position en x
@@ -39,10 +31,10 @@ public class Position {
 
     public void deplacer(String direction) {
         switch (direction) {
-            case HAUT -> this.dx--;
-            case BAS -> this.dx++;
-            case GAUCHE -> this.dy--;
-            case DROITE -> this.dy++;
+            case Labyrinthe.HAUT -> this.dx--;
+            case Labyrinthe.BAS -> this.dx++;
+            case Labyrinthe.GAUCHE -> this.dy--;
+            case Labyrinthe.DROITE -> this.dy++;
         }
     }
 

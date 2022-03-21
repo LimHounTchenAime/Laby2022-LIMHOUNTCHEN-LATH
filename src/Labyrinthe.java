@@ -9,6 +9,14 @@ class Labyrinthe {
     private Personnage personnage;
     private Sortie sortie;
 
+    /**
+     * Constante de direction
+     */
+    public static final String HAUT = "haut";
+    public static final String BAS = "bas";
+    public static final String GAUCHE = "gauche";
+    public static final String DROITE = "droite";
+
     //methodes
 
     /**
