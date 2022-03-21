@@ -4,7 +4,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class PositionTest {
 
     @Test
-    public void testDeplacerPositionPositive(){*
+    public void testDeplacerPositionPositive(){
         //Test si x se deplace vers le haut
         Position p = new Position(2,6);
         p.deplacer(Labyrinthe.HAUT);
