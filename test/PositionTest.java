@@ -20,11 +20,11 @@ class PositionTest {
     public void testDeplacerPositionNegative(){
         //Test de x avec des coordonnees negatives
         Position p = new Position(-4,-7);
-        p.deplacer(Labyrinthe.HAUT);
-        assertEquals(-3,p.getDx(),"x != -3");
         p.deplacer(Labyrinthe.BAS);
+        assertEquals(-3,p.getDx(),"x != -3");
+        p.deplacer(Labyrinthe.HAUT);
         p.deplacer(Labyrinthe.GAUCHE);
-        assertEquals(-4,p.getDx()," x != -4" );
+        assertEquals(-4,p.getDx()," x != -3" );
         assertEquals(-8,p.getDy()," x != -8" );
     }
 
