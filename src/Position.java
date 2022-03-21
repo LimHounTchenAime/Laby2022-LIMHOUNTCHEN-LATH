@@ -8,6 +8,22 @@ public class Position {
     private int dy;
 
     /**
+     * contructeur de Position
+     *
+     * @param x, coord en x
+     * @param y, coord en y
+     */
+    Position(int x, int y) {
+        this.dx = x;
+        this.dy = y;
+    }
+
+    Position() {
+        this.dx = 0;
+        this.dy = 0;
+    }
+
+    /**
      * Getter
      *
      * @return retourne position en x
@@ -23,22 +39,6 @@ public class Position {
      */
     public int getDy() {
         return dy;
-    }
-
-    /**
-     * contructeur de Position
-     *
-     * @param x, coord en x
-     * @param y, coord en y
-     */
-    Position(int x, int y) {
-        this.dx = x;
-        this.dy = y;
-    }
-
-    Position() {
-        this.dx = 0;
-        this.dy = 0;
     }
 
     public void deplacer(String direction) {
