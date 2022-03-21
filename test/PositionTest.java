@@ -7,7 +7,7 @@ class PositionTest {
     public void testDeplacer(){
         Position p = new Position(2,3);
         p.deplacer(Labyrinthe.HAUT);
-        assertEquals(p.getDx(),1,"x devrait etre egal 1");
+        assertEquals(p.getDx(),9,"x devrait etre egal 1");
     }
 
 }

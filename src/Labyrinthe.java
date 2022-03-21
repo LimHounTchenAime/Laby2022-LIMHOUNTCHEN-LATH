@@ -10,12 +10,16 @@ class Labyrinthe {
     private Sortie sortie;
 
     /**
-     * Constante de direction
+     * Constante
      */
     public static final String HAUT = "haut";
     public static final String BAS = "bas";
     public static final String GAUCHE = "gauche";
     public static final String DROITE = "droite";
+    public static final char MUR = 'X';
+    public static final char PJ = 'P';
+    public static final char SORTIE = 'S';
+    public static final char VIDE = '.';
 
     //methodes
 
