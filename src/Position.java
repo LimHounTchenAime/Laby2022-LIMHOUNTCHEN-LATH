@@ -7,9 +7,17 @@ public class Position {
     private int dx;
     private int dy;
 
+    /**
+     * Getter
+     * @return retourne position en x
+     */
     public int getDx() {
         return dx;
     }
+    /**
+     * Getter
+     * @return retourne position en y
+     */
     public int getDy() {
         return dy;
     }
@@ -18,7 +26,11 @@ public class Position {
      * @param x, postion en x
      * @param y, position en y
      */
-
+    /**
+     * contructeur de Position
+     * @param x, coord en x
+     * @param y, coord en y
+     */
     Position(int x, int y) {
         this.dx = x;
         this.dy = y;
