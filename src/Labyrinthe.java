@@ -28,6 +28,7 @@ class Labyrinthe{
         throw new Error("TODO");
     }
 
+
     public static Labyrinthe chargerLabyrinthe(String nom) {
         throw new Error("TODO");
     }
