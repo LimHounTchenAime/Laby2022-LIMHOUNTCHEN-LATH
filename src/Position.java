@@ -26,9 +26,10 @@ public class Position {
 
     public void deplacer(String direction){
         switch(direction){
-            case HAUT -> this.dx-=1;
-            case BAS -> this.dx+=1;
-            case GAUCHE -> this.dy+=
+            case HAUT -> this.dx--;
+            case BAS -> this.dx++;
+            case GAUCHE -> this.dy--;
+            case DROITE -> this.dy++;
         }
     }
 
