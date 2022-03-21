@@ -10,12 +10,21 @@ class Labyrinthe {
     private Sortie sortie;
 
     /**
-     * Constante
+     * • ’X’ represente un mur et sera represente par la constante MUR ;
+     * • ’P’ represente le personnage et sera represente par la constante PJ ;
+     * • ’S’ represente une sortie et sera represente par la constante SORTIE ;
+     * • ’.’ represente une case vide sera represente par la constante VIDE.
      */
     public static final String HAUT = "haut";
     public static final String BAS = "bas";
     public static final String GAUCHE = "gauche";
     public static final String DROITE = "droite";
+    /**
+     * • "haut" represente par la constante nommee HAUT
+     * • "bas" represente par la constante nommee BAS
+     * • "gauche" represente par la constante nommee GAUCHE
+     * • "droite" represente par la constante nommee DROITE
+     */
     public static final char MUR = 'X';
     public static final char PJ = 'P';
     public static final char SORTIE = 'S';
