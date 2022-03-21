@@ -15,7 +15,7 @@ class PositionTest {
         p.deplacer(Labyrinthe.BAS);
         p.deplacer(Labyrinthe.GAUCHE);
         assertEquals(2, p.getDx(), " x != 2");
-        assertEquals(5, p.getDy(), " x != 2");
+        assertEquals(5, p.getDy(), " y != 2");
     }
 
     @Test
@@ -29,7 +29,7 @@ class PositionTest {
         p.deplacer(Labyrinthe.HAUT);
         p.deplacer(Labyrinthe.GAUCHE);
         assertEquals(-4, p.getDx(), " x != -3");
-        assertEquals(-8, p.getDy(), " x != -8");
+        assertEquals(-8, p.getDy(), " y != -8");
     }
 
 }
