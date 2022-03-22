@@ -5,10 +5,6 @@ class Labyrinthe {
 
     //attributs
 
-    private boolean[][] murs;
-    private Personnage personnage;
-    private Sortie sortie;
-
     /**
      * • ’X’ represente un mur et sera represente par la constante MUR ;
      * • ’P’ represente le personnage et sera represente par la constante PJ ;
@@ -29,20 +25,11 @@ class Labyrinthe {
     public static final char PJ = 'P';
     public static final char SORTIE = 'S';
     public static final char VIDE = '.';
+    private boolean[][] murs;
+    private Personnage personnage;
+    private Sortie sortie;
 
     //methodes
-
-    /**
-     * retourne un caractere decrivant le contenu de
-     * la case (x,y)
-     *
-     * @param x numero de ligne (ordonnee)
-     * @param y numero de colonne (abscisse)
-     * @return caractere
-     */
-    char getChar(int x, int y) {
-        throw new Error("TODO");
-    }
 
     /**
      * donne les coordonnees de la case voisine de (x,y) selon la direction action
@@ -53,6 +40,28 @@ class Labyrinthe {
      * @return coordonnes de la case voisine
      */
     static int[] getSuivant(int x, int y, String action) {
+        throw new Error("TODO");
+    }
+
+    /**
+     * permet de charger un labyrinthe a partir d’un fichier
+     *
+     * @param nom nom du fichier
+     * @return labyrinthe charge
+     */
+    public static Labyrinthe chargerLabyrinthe(String nom) {
+        throw new Error("TODO");
+    }
+
+    /**
+     * retourne un caractere decrivant le contenu de
+     * la case (x,y)
+     *
+     * @param x numero de ligne (ordonnee)
+     * @param y numero de colonne (abscisse)
+     * @return caractere
+     */
+    char getChar(int x, int y) {
         throw new Error("TODO");
     }
 
@@ -83,15 +92,5 @@ class Labyrinthe {
     public boolean etreFini() {
         throw new Error("TODO");
     }
-
-    /**
-     * permet de charger un labyrinthe a partir d’un fichier
-     *
-     * @param nom nom du fichier
-     * @return labyrinthe charge
-     */
-    public static Labyrinthe chargerLabyrinthe(String nom) {
-        throw new Error("TODO");
-    }
-    //TODO Ecrire la méthode chargeant le labyrinthe
+    //TODO Ecrire la méthode chargeant le labyrinthe en lisant le fichier avec les flux
 }
