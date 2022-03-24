@@ -25,6 +25,7 @@ class Labyrinthe {
     public static final char PJ = 'P';
     public static final char SORTIE = 'S';
     public static final char VIDE = '.';
+
     private boolean[][] murs;
     private Personnage personnage;
     private Sortie sortie;
