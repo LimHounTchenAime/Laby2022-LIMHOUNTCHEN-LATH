@@ -1,6 +1,6 @@
 public class ActionInconnueException extends Exception {
 
-        public ActionInconnueException(String s){
-            super(s);
-        }
+    public ActionInconnueException(String s) {
+        super(s);
+    }
 }

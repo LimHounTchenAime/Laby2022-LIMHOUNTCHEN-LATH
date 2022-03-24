@@ -4,7 +4,7 @@ public class Personnage extends Position {
         super(x, y);
     }
 
-    public void setDx(int x){
+    public void setDx(int x) {
         this.dx = x;
     }
 }

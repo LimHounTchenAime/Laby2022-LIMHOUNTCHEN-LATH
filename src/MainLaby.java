@@ -13,13 +13,14 @@ public class MainLaby {
         String direction = "";
 
         //sortie
-        Sortie.get
+
+        //personnage
+
         while (!l.etreFini()) {
 
             //exit -> sort labyrinthe
             direction = sc.nextLine();
             if (direction != "exit") {
-
 
 
             }
