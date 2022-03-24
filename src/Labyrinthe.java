@@ -1,3 +1,5 @@
+import java.io.*;
+
 /**
  * Squelette de classe labyrinthe
  */
@@ -6,25 +8,27 @@ class Labyrinthe {
     //attributs
 
     /**
-     * • ’X’ represente un mur et sera represente par la constante MUR ;
-     * • ’P’ represente le personnage et sera represente par la constante PJ ;
-     * • ’S’ represente une sortie et sera represente par la constante SORTIE ;
-     * • ’.’ represente une case vide sera represente par la constante VIDE.
-     */
-    public static final String HAUT = "haut";
-    public static final String BAS = "bas";
-    public static final String GAUCHE = "gauche";
-    public static final String DROITE = "droite";
-    /**
      * • "haut" represente par la constante nommee HAUT
      * • "bas" represente par la constante nommee BAS
      * • "gauche" represente par la constante nommee GAUCHE
      * • "droite" represente par la constante nommee DROITE
      */
+    public static final String HAUT = "haut";
+    public static final String BAS = "bas";
+    public static final String GAUCHE = "gauche";
+    public static final String DROITE = "droite";
+
+    /**
+     * • ’X’ represente un mur et sera represente par la constante MUR ;
+     * • ’P’ represente le personnage et sera represente par la constante PJ ;
+     * • ’S’ represente une sortie et sera represente par la constante SORTIE ;
+     * • ’.’ represente une case vide sera represente par la constante VIDE.
+     */
     public static final char MUR = 'X';
     public static final char PJ = 'P';
     public static final char SORTIE = 'S';
     public static final char VIDE = '.';
+
     private boolean[][] murs;
     private Personnage personnage;
     private Sortie sortie;
@@ -39,8 +43,10 @@ class Labyrinthe {
      * @param action direction (haut, bas, gauche, droite)
      * @return coordonnes de la case voisine
      */
-    static int[] getSuivant(int x, int y, String action) {
-        throw new Error("TODO");
+    static int[] getSuivant(int x, int y, String action) throws ActionInconnueException{
+        if((action!=Labyrinthe.HAUT)||(action!=Labyrinthe.BAS)||(action!=Labyrinthe.GAUCHE)||(action!=Labyrinthe.DROITE))
+            throw new Error(ActionInconnueException);
+
     }
 
     /**
@@ -49,8 +55,56 @@ class Labyrinthe {
      * @param nom nom du fichier
      * @return labyrinthe charge
      */
-    public static Labyrinthe chargerLabyrinthe(String nom) {
-        throw new Error("TODO");
+    public static Labyrinthe chargerLabyrinthe(String nom) throws FichierIncorrectException{
+        //on cree un labyrinthe null par default
+        Labyrinthe res=null;
+
+        //on voit si on arrive a charger le fichier
+        try {
+            //on charge le fichier
+            FileReader fr = new FileReader(nom);
+            BufferedReader br=new BufferedReader(fr);
+
+            //on releve le nombre de lignes de lignes et colonnes avec le BufferedReader
+            int ligne=Integer.parseInt(br.readLine());
+            int colonne=Integer.parseInt(br.readLine());
+
+            //on initialise le labyrinthe s'il n'y a pas eu d'erreur de chargement de fichier
+            res=new Labyrinthe();
+
+            //on initialise le nombre de murs et de colonnes du labyrinthe a renvoyer
+            res.murs=new murs[ligne][colonne];
+
+            //on cree une variable elem qui represente les elements du fichiers
+            char elem;
+
+            //on cree une variable cpt qui compte le nombre de lignes parcourues durant la lecture du fichier
+            int cpt=0;
+
+            //on lit le fichier
+            String elems=br.readLine();
+            while(elems!=null) {
+                cpt++;
+                if (elems.length != colonne || cpt>ligne)
+                    throw new Error(FichierIncorrectException);
+                for(int i=0;i<colonne;i++) {
+                    elem = fr.read();
+                    if ((elem != Labyrinthe.MUR) || (elem != Labyrinthe.PJ) || (elem != Labyrinthe.SORTIE) || (elem != Labyrinthe.VIDE))
+                        throw new Error(FichierIncorrectException);
+                    res.murs[cpt][i] = elem == Labyrinthe.MUR;
+                    if (elem == Labyrinthe.PJ)
+                        if (res.personnage == null)
+                            res.personnage = new Personnage(cpt, i);
+                        else
+                            throw new Error(FichierIncorrectException);
+                }
+                elems=br.readLine();
+            }
+        }
+        catch(FileNotFoundException e){
+            System.out.println("nom de fichier incorrect");
+        }
+        return res;
     }
 
     /**
