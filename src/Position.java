@@ -4,8 +4,8 @@ public class Position {
      * dx, position en x
      * dy, position en y
      */
-    private int dx;
-    private int dy;
+    protected int dx;
+    protected int dy;
 
     /**
      * contructeur de Position
@@ -23,22 +23,19 @@ public class Position {
         this.dy = 0;
     }
 
-    /**
-     * Getter
-     *
-     * @return retourne position en x
-     */
+
     public int getDx() {
         return dx;
     }
 
-    /**
-     * Getter
-     *
-     * @return retourne position en y
-     */
+
     public int getDy() {
+
         return dy;
+    }
+
+    public void setDy(int dy) {
+        this.dy = dy;
     }
 
     public void deplacer(String direction) {
