@@ -20,7 +20,7 @@ public class MainLaby {
 
             //exit -> sort labyrinthe
             direction = sc.nextLine();
-            if (direction != "exit") {
+            if (!direction.equals("exit")) {
 
 
             }
