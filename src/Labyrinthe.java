@@ -47,10 +47,29 @@ public class Labyrinthe {
      * @param action direction (haut, bas, gauche, droite)
      * @return coordonnes de la case voisine
      */
-    public static int[] getSuivant(int x, int y, String action) throws ActionInconnueException {
-        if ((!action.equals(Labyrinthe.HAUT)) || (!action.equals(Labyrinthe.BAS)) || (!action.equals(Labyrinthe.GAUCHE)) || (!action.equals(Labyrinthe.DROITE)) || (!action.equals("exit")))
-            throw new ActionInconnueException("direction inconnue");
-        return null;
+    public static int[] getSuivant(int x, int y, String action){
+        int[] res = new int[2];
+        try {
+            if ((!action.equals(Labyrinthe.HAUT)) && (!action.equals(Labyrinthe.BAS)) && (!action.equals(Labyrinthe.GAUCHE)) && (!action.equals(Labyrinthe.DROITE)) && (!action.equals("exit")))
+                throw new ActionInconnueException("direction inconnue");
+            if (action.equals(Labyrinthe.HAUT)) {
+                res[0] = x - 1;
+                res[1] = y;
+            } else if (action.equals(Labyrinthe.BAS)) {
+                res[0] = x + 1;
+                res[1] = y;
+            } else if (action.equals(Labyrinthe.GAUCHE)) {
+                res[0] = x;
+                res[1] = y - 1;
+            } else if (action.equals(Labyrinthe.DROITE)) {
+                res[0] = x;
+                res[1] = y + 1;
+            }
+        }
+        catch (ActionInconnueException e){
+            System.out.println("action inconnue");
+        }
+        return res;
     }
 
     /**
@@ -110,7 +129,7 @@ public class Labyrinthe {
                 cpt++;
                 elems = br.readLine();
             }
-            if((res.sortie==null)||(res.personnage==null))
+            if ((res.sortie == null) || (res.personnage == null))
                 throw new FichierIncorrectException("il n'y a pas de sortie ou de personnage");
         } catch (FileNotFoundException e) {
             System.out.println("nom de fichier incorrect");
@@ -129,13 +148,13 @@ public class Labyrinthe {
      * @return caractere
      */
     char getChar(int x, int y) {
-        char res='.';
-        if(this.murs[x][y]==true)
-            res=Labyrinthe.MUR;
-        else if(this.sortie.getDx()==x && this.sortie.getDy()==y)
-            res=Labyrinthe.SORTIE;
-        else if(this.personnage.getDx()==x && this.personnage.getDy()==y)
-            res=Labyrinthe.PJ;
+        char res = '.';
+        if (this.murs[x][y] == true)
+            res = Labyrinthe.MUR;
+        else if (this.sortie.getDx() == x && this.sortie.getDy() == y)
+            res = Labyrinthe.SORTIE;
+        else if (this.personnage.getDx() == x && this.personnage.getDy() == y)
+            res = Labyrinthe.PJ;
         return res;
     }
 
