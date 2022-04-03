@@ -96,7 +96,7 @@ public class Labyrinthe {
                         if (res.personnage == null)
                             res.personnage = new Personnage(cpt, i);
                         else
-                            throw new FichierIncorrectException("il y a deux personnages dans le labyrinthe");
+                            throw new FichierIncorrectException("il y a plus d'un personnage dans le labyrinthe");
                     }
 
                     //creation sortie
@@ -104,11 +104,13 @@ public class Labyrinthe {
                         if (res.sortie == null)
                             res.sortie=new Sortie(cpt, i);
                         else
-                            throw new FichierIncorrectException("il y a deux sorties dans le labyrinthe");
+                            throw new FichierIncorrectException("il y a plus d'une sortie dans le labyrinthe");
                 }
                 cpt++;
                 elems = br.readLine();
             }
+            if((res.sortie==null)||(res.personnage==null))
+                throw new FichierIncorrectException("il n'y a pas de sortie ou de personnage");
         } catch (FileNotFoundException e) {
             System.out.println("nom de fichier incorrect");
         }
@@ -127,7 +129,14 @@ public class Labyrinthe {
      * @return caractere
      */
     char getChar(int x, int y) {
-        throw new Error("TODO");
+        char res='.';
+        if(this.murs[x][y]==true)
+            res=Labyrinthe.MUR;
+        else if(this.sortie.getDx()==x && this.sortie.getDy()==y)
+            res=Labyrinthe.SORTIE;
+        else if(this.personnage.getDx()==x && this.personnage.getDy()==y)
+            res=Labyrinthe.PJ;
+        return res;
     }
 
     /**
