@@ -196,7 +196,7 @@ public class Labyrinthe {
      * @return etat du jeu fini
      */
     public boolean etreFini() {
-        throw new Error("TODO");
+        return((this.personnage.getDx()==this.sortie.getDx())&&(this.personnage.getDy()==this.sortie.getDy()));
     }
     //TODO Ecrire la méthode chargeant le labyrinthe en lisant le fichier avec les flux
 }
