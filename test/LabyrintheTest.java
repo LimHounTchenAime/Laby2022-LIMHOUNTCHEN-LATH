@@ -79,4 +79,50 @@ class LabyrintheTest {
         //verification methode a tester
         assertArrayEquals(Labyrinthe.getSuivant(1, 2, Labyrinthe.GAUCHE), test);
     }
+
+    @Test
+    public void testDeplacerPerso() {
+        //chargement des donnes
+        Labyrinthe labyrinthe=Labyrinthe.chargerLabyrinthe("laby/laby0.txt");
+
+        //methode a tester
+        labyrinthe.deplacerPerso(Labyrinthe.HAUT);
+
+        //verification
+        assertEquals(labyrinthe.toString(), "XXXXXXX\n" +
+                "XS.P..X\n" +
+                "X.....X\n" +
+                "X.....X\n" +
+                "XXXXXXX\n");
+
+        //methode a tester
+        labyrinthe.deplacerPerso(Labyrinthe.BAS);
+
+        //verification
+        assertEquals(labyrinthe.toString(), "XXXXXXX\n" +
+                "XS....X\n" +
+                "X.....X\n" +
+                "X..P..X\n" +
+                "XXXXXXX\n");
+
+        //methode a tester
+        labyrinthe.deplacerPerso(Labyrinthe.GAUCHE);
+
+        //verification
+        assertEquals(labyrinthe.toString(), "XXXXXXX\n" +
+                "XS....X\n" +
+                "X.....X\n" +
+                "XP....X\n" +
+                "XXXXXXX\n");
+
+        //methode a tester
+        labyrinthe.deplacerPerso(Labyrinthe.DROITE);
+
+        //verification
+        assertEquals(labyrinthe.toString(), "XXXXXXX\n" +
+                "XS....X\n" +
+                "X.....X\n" +
+                "X....PX\n" +
+                "XXXXXXX\n");
+    }
 }

@@ -33,10 +33,6 @@ public class Labyrinthe {
     private Personnage personnage;
     private Sortie sortie;
 
-    //constructeur
-    public Labyrinthe() {
-    }
-
     //methodes
 
     /**
@@ -47,7 +43,7 @@ public class Labyrinthe {
      * @param action direction (haut, bas, gauche, droite)
      * @return coordonnes de la case voisine
      */
-    public static int[] getSuivant(int x, int y, String action){
+    public static int[] getSuivant(int x, int y, String action) {
         int[] res = new int[2];
         try {
             if ((!action.equals(Labyrinthe.HAUT)) && (!action.equals(Labyrinthe.BAS)) && (!action.equals(Labyrinthe.GAUCHE)) && (!action.equals(Labyrinthe.DROITE)) && (!action.equals("exit")))
@@ -65,8 +61,7 @@ public class Labyrinthe {
                 res[0] = x;
                 res[1] = y + 1;
             }
-        }
-        catch (ActionInconnueException e){
+        } catch (ActionInconnueException e) {
             System.out.println("action inconnue");
         }
         return res;
@@ -164,8 +159,12 @@ public class Labyrinthe {
      * @param action direction (haut, bas, gauche, droite)
      * @throws ActionInconnueException
      */
-    void deplacerPerso(String action) throws ActionInconnueException {
-        throw new Error("TODO");
+    void deplacerPerso(String action) {
+        int[] chemin = Labyrinthe.getSuivant(this.personnage.getDx(), this.personnage.getDy(), action);
+        while (this.murs[chemin[0]][chemin[1]] == false) {
+            this.personnage = new Personnage(chemin[0], chemin[1]);
+            chemin = Labyrinthe.getSuivant(this.personnage.getDx(), this.personnage.getDy(), action);
+        }
     }
 
     /**
