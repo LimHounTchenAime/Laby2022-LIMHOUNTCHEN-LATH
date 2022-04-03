@@ -34,7 +34,8 @@ public class Labyrinthe {
     private Sortie sortie;
 
     //constructeur
-    public Labyrinthe(){}
+    public Labyrinthe() {
+    }
 
     //methodes
 
@@ -58,10 +59,10 @@ public class Labyrinthe {
      * @param nom nom du fichier
      * @return labyrinthe charge
      */
-    public static Labyrinthe chargerLabyrinthe(String nom){
+    public static Labyrinthe chargerLabyrinthe(String nom) {
 
         //on cree un labyrinthe
-        Labyrinthe res=new Labyrinthe();
+        Labyrinthe res = new Labyrinthe();
 
         //on voit si on arrive a charger le fichier
         try {
@@ -85,14 +86,14 @@ public class Labyrinthe {
                 if (elems.length() != colonne || cpt > ligne)
                     throw new FichierIncorrectException("le nombre de lignes/colonnes annonce ne correspond pas au labyrinthe");
                 for (int i = 0; i < colonne; i++) {
-                    if ((elems.charAt(i)!=Labyrinthe.MUR) && (elems.charAt(i)!=Labyrinthe.PJ) && (elems.charAt(i)!=Labyrinthe.SORTIE) && (elems.charAt(i)!=Labyrinthe.VIDE))
+                    if ((elems.charAt(i) != Labyrinthe.MUR) && (elems.charAt(i) != Labyrinthe.PJ) && (elems.charAt(i) != Labyrinthe.SORTIE) && (elems.charAt(i) != Labyrinthe.VIDE))
                         throw new FichierIncorrectException("un element du labyrinthe est inconnu");
 
                     //creation du tableau de murs
                     res.murs[cpt][i] = (elems.charAt(i) == Labyrinthe.MUR);
 
                     //creation personnage
-                    if (elems.charAt(i)==Labyrinthe.PJ) {
+                    if (elems.charAt(i) == Labyrinthe.PJ) {
                         if (res.personnage == null)
                             res.personnage = new Personnage(cpt, i);
                         else
@@ -100,9 +101,9 @@ public class Labyrinthe {
                     }
 
                     //creation sortie
-                    if(elems.charAt(i)==Labyrinthe.SORTIE)
+                    if (elems.charAt(i) == Labyrinthe.SORTIE)
                         if (res.sortie == null)
-                            res.sortie=new Sortie(cpt, i);
+                            res.sortie = new Sortie(cpt, i);
                         else
                             throw new FichierIncorrectException("il y a deux sorties dans le labyrinthe");
                 }
@@ -111,8 +112,7 @@ public class Labyrinthe {
             }
         } catch (FileNotFoundException e) {
             System.out.println("nom de fichier incorrect");
-        }
-        catch (IOException e){
+        } catch (IOException e) {
             System.out.println("probleme");
         }
         return res;
@@ -158,7 +158,7 @@ public class Labyrinthe {
                 else
                     res += Character.toString(Labyrinthe.VIDE);
             }
-            res+="\n";
+            res += "\n";
         }
         return res;
     }
