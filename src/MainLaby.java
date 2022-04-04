@@ -22,11 +22,10 @@ public class MainLaby {
             //exit -> sort labyrinthe
             direction = sc.nextLine();
             if (!direction.equals("exit")) {
-                l.setPersonn;
-
+                l.personnage.setDx(l.sortie.getDx());
+                l.personnage.setDy(l.sortie.getDy());
             }else{
 
-                if(get)
             }
         }
     }
