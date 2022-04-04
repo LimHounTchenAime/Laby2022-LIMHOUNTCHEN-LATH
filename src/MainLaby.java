@@ -12,6 +12,7 @@ public class MainLaby {
         Scanner sc = new Scanner(System.in);
         String direction = "";
 
+        int[] suivant;
         //sortie
 
         //personnage
@@ -21,8 +22,11 @@ public class MainLaby {
             //exit -> sort labyrinthe
             direction = sc.nextLine();
             if (!direction.equals("exit")) {
+                l.setPersonn;
 
+            }else{
 
+                if(get)
             }
         }
     }

@@ -30,8 +30,8 @@ public class Labyrinthe {
     public static final char VIDE = '.';
 
     private boolean[][] murs;
-    private Personnage personnage;
-    private Sortie sortie;
+    protected Personnage personnage;
+    protected Sortie sortie;
 
     //methodes
 
