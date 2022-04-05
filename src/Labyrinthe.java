@@ -30,8 +30,8 @@ public class Labyrinthe {
     public static final char VIDE = '.';
 
     private boolean[][] murs;
-    protected Personnage personnage;
-    protected Sortie sortie;
+    private Personnage personnage;
+    private Sortie sortie;
 
     //methodes
 
@@ -198,5 +198,5 @@ public class Labyrinthe {
     public boolean etreFini() {
         return((this.personnage.getDx()==this.sortie.getDx())&&(this.personnage.getDy()==this.sortie.getDy()));
     }
-    //TODO Ecrire la méthode chargeant le labyrinthe en lisant le fichier avec les flux
+
 }
