@@ -5,28 +5,20 @@ public class MainLaby {
 
         //chargement du labyrinthe et affichage de l'etat initial
         Labyrinthe l = Labyrinthe.chargerLabyrinthe(args[0]);
-        String s = l.toString();
-        System.out.println(s);
+        System.out.println(l);
 
         //debut du jeu
         Scanner sc = new Scanner(System.in);
-        String direction = "";
 
-        int[] suivant;
-        //sortie
+        System.out.println("Veuillez saisir une direction : ");
+        String direction = sc.nextLine();
 
-        //personnage
+        while (!l.etreFini() && !direction.equals("exit") ) {
+            l.deplacerPerso(direction);
+            System.out.println(l);
 
-        while (!l.etreFini()) {
-
-            //exit -> sort labyrinthe
+            System.out.println("Veuillez saisir une direction : ");
             direction = sc.nextLine();
-            if (!direction.equals("exit")) {
-                l.personnage.setDx(l.sortie.getDx());
-                l.personnage.setDy(l.sortie.getDy());
-            }else{
-
-            }
         }
     }
 }
