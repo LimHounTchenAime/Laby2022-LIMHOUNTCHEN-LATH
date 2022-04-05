@@ -73,7 +73,7 @@ public class Labyrinthe {
      * @param nom nom du fichier
      * @return labyrinthe charge
      */
-    public static Labyrinthe chargerLabyrinthe(String nom) {
+    public static Labyrinthe chargerLabyrinthe(String nom) throws FichierIncorrectException, IOException{
 
         //on cree un labyrinthe
         Labyrinthe res = new Labyrinthe();
@@ -128,8 +128,6 @@ public class Labyrinthe {
                 throw new FichierIncorrectException("il n'y a pas de sortie ou de personnage");
         } catch (FileNotFoundException e) {
             System.out.println("nom de fichier incorrect");
-        } catch (IOException e) {
-            System.out.println("probleme a la lecture du fichier");
         }
         return res;
     }
@@ -159,7 +157,7 @@ public class Labyrinthe {
      * @param action direction (haut, bas, gauche, droite)
      * @throws ActionInconnueException
      */
-    void deplacerPerso(String action) throws ActionInconnueException{
+    void deplacerPerso(String action) throws ActionInconnueException {
         int[] chemin = Labyrinthe.getSuivant(this.personnage.getDx(), this.personnage.getDy(), action);
         while (this.murs[chemin[0]][chemin[1]] == false) {
             this.personnage = new Personnage(chemin[0], chemin[1]);
@@ -196,7 +194,7 @@ public class Labyrinthe {
      * @return etat du jeu fini
      */
     public boolean etreFini() {
-        return((this.personnage.getDx()==this.sortie.getDx())&&(this.personnage.getDy()==this.sortie.getDy()));
+        return ((this.personnage.getDx() == this.sortie.getDx()) && (this.personnage.getDy() == this.sortie.getDy()));
     }
     //TODO Ecrire la méthode chargeant le labyrinthe en lisant le fichier avec les flux
 }

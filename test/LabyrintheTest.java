@@ -6,10 +6,11 @@ import java.io.FileNotFoundException;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+
 class LabyrintheTest {
 
     @Test
-    public void testChargerLabyrintheLaby0() {
+    public void testChargerLabyrintheLaby0() throws ActionInconnueException, IOException {
         //chargement des donnees
         Labyrinthe labyrinthe = Labyrinthe.chargerLabyrinthe("laby/laby0.txt");
 
@@ -18,7 +19,7 @@ class LabyrintheTest {
     }
 
     @Test
-    public void testChargerLabyrintheLaby1() {
+    public void testChargerLabyrintheLaby1() throws ActionInconnueException, IOException {
         //chargement des donnees
         Labyrinthe labyrinthe = Labyrinthe.chargerLabyrinthe("laby/laby1.txt");
 
@@ -33,7 +34,7 @@ class LabyrintheTest {
     }
 
     @Test
-    public void testChargerLabyrintheLaby2() {
+    public void testChargerLabyrintheLaby2() throws ActionInconnueException, IOException {
         //chargement des donnees
         Labyrinthe labyrinthe = Labyrinthe.chargerLabyrinthe("laby/laby2.txt");
 
@@ -55,35 +56,35 @@ class LabyrintheTest {
     }
 
     @Test
-    public void testGetSuivant(){
+    public void testGetSuivant() {
         //initialisation des variables
-        int[] test=new int[2];
-        test[0]=0;
-        test[1]=1;
+        int[] test = new int[2];
+        test[0] = 0;
+        test[1] = 1;
 
         //verification methode a tester
         assertArrayEquals(Labyrinthe.getSuivant(1, 1, Labyrinthe.HAUT), test);
 
-        test[0]=1;
+        test[0] = 1;
 
         //verification methode a tester
         assertArrayEquals(Labyrinthe.getSuivant(0, 1, Labyrinthe.BAS), test);
 
-        test[1]=2;
+        test[1] = 2;
 
         //verification methode a tester
         assertArrayEquals(Labyrinthe.getSuivant(1, 1, Labyrinthe.DROITE), test);
 
-        test[1]=1;
+        test[1] = 1;
 
         //verification methode a tester
         assertArrayEquals(Labyrinthe.getSuivant(1, 2, Labyrinthe.GAUCHE), test);
     }
 
     @Test
-    public void testDeplacerPerso() throws ActionInconnueException{
+    public void testDeplacerPerso() throws ActionInconnueException, IOException {
         //chargement des donnes
-        Labyrinthe labyrinthe=Labyrinthe.chargerLabyrinthe("laby/laby0.txt");
+        Labyrinthe labyrinthe = Labyrinthe.chargerLabyrinthe("laby/laby0.txt");
 
         //methode a tester
         labyrinthe.deplacerPerso(Labyrinthe.HAUT);
@@ -124,5 +125,18 @@ class LabyrintheTest {
                 "X.....X\n" +
                 "X....PX\n" +
                 "XXXXXXX\n");
+    }
+
+    @Test
+    public void testLabyDeuxSortie() throws IOException{
+        String res = "";
+        try {
+            Labyrinthe labyrinthe = Labyrinthe.chargerLabyrinthe("laby/laby_deuxSortie.txt");
+        } catch (FichierIncorrectException e) {
+            res = e.getMessage();
+        }
+
+        //verification
+        assertEquals(res, "il y a plus d'une sortie dans le labyrinthe");
     }
 }

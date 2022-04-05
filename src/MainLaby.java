@@ -1,7 +1,8 @@
+import java.io.IOException;
 import java.util.Scanner;
 
 public class MainLaby {
-    public static void main(String[] args) throws FichierIncorrectException {
+    public static void main(String[] args) throws IOException {
 
         //chargement du labyrinthe et affichage de l'etat initial
         Labyrinthe l = Labyrinthe.chargerLabyrinthe(args[0]);
