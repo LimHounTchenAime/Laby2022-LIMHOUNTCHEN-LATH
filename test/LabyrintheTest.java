@@ -139,4 +139,16 @@ class LabyrintheTest {
         //verification
         assertEquals(res, "il y a plus d'une sortie dans le labyrinthe");
     }
+
+    @Test
+    public void testLabyPasDeSortie() throws IOException {
+        String res ="";
+        try{
+            Labyrinthe l = Labyrinthe.chargerLabyrinthe("laby/laby_pasSortie.txt");
+        }catch (FichierIncorrectException fie){
+           res = fie.getMessage();
+        }
+
+        assertEquals("il n'y a pas de sortie ou de personnage", res);
+    }
 }
