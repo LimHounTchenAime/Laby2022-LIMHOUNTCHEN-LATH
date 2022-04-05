@@ -159,7 +159,7 @@ public class Labyrinthe {
      * @param action direction (haut, bas, gauche, droite)
      * @throws ActionInconnueException
      */
-    void deplacerPerso(String action) throws ActionInconnueException{
+    void deplacerPerso(String action) throws ActionInconnueException {
         int[] chemin = Labyrinthe.getSuivant(this.personnage.getDx(), this.personnage.getDy(), action);
         while (this.murs[chemin[0]][chemin[1]] == false) {
             this.personnage = new Personnage(chemin[0], chemin[1]);
@@ -196,7 +196,7 @@ public class Labyrinthe {
      * @return etat du jeu fini
      */
     public boolean etreFini() {
-        return((this.personnage.getDx()==this.sortie.getDx())&&(this.personnage.getDy()==this.sortie.getDy()));
+        return ((this.personnage.getDx() == this.sortie.getDx()) && (this.personnage.getDy() == this.sortie.getDy()));
     }
 
 }

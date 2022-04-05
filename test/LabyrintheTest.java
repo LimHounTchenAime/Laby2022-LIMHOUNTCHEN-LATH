@@ -55,35 +55,35 @@ class LabyrintheTest {
     }
 
     @Test
-    public void testGetSuivant(){
+    public void testGetSuivant() {
         //initialisation des variables
-        int[] test=new int[2];
-        test[0]=0;
-        test[1]=1;
+        int[] test = new int[2];
+        test[0] = 0;
+        test[1] = 1;
 
         //verification methode a tester
         assertArrayEquals(Labyrinthe.getSuivant(1, 1, Labyrinthe.HAUT), test);
 
-        test[0]=1;
+        test[0] = 1;
 
         //verification methode a tester
         assertArrayEquals(Labyrinthe.getSuivant(0, 1, Labyrinthe.BAS), test);
 
-        test[1]=2;
+        test[1] = 2;
 
         //verification methode a tester
         assertArrayEquals(Labyrinthe.getSuivant(1, 1, Labyrinthe.DROITE), test);
 
-        test[1]=1;
+        test[1] = 1;
 
         //verification methode a tester
         assertArrayEquals(Labyrinthe.getSuivant(1, 2, Labyrinthe.GAUCHE), test);
     }
 
     @Test
-    public void testDeplacerPerso() throws ActionInconnueException{
+    public void testDeplacerPerso() throws ActionInconnueException {
         //chargement des donnes
-        Labyrinthe labyrinthe=Labyrinthe.chargerLabyrinthe("laby/laby0.txt");
+        Labyrinthe labyrinthe = Labyrinthe.chargerLabyrinthe("laby/laby0.txt");
 
         //methode a tester
         labyrinthe.deplacerPerso(Labyrinthe.HAUT);
@@ -125,4 +125,6 @@ class LabyrintheTest {
                 "X....PX\n" +
                 "XXXXXXX\n");
     }
+
+
 }
