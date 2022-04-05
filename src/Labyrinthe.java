@@ -129,7 +129,7 @@ public class Labyrinthe {
         } catch (FileNotFoundException e) {
             System.out.println("nom de fichier incorrect");
         } catch (IOException e) {
-            System.out.println("probleme");
+            System.out.println("probleme a la lecture du fichier");
         }
         return res;
     }
@@ -159,7 +159,7 @@ public class Labyrinthe {
      * @param action direction (haut, bas, gauche, droite)
      * @throws ActionInconnueException
      */
-    void deplacerPerso(String action) {
+    void deplacerPerso(String action) throws ActionInconnueException{
         int[] chemin = Labyrinthe.getSuivant(this.personnage.getDx(), this.personnage.getDy(), action);
         while (this.murs[chemin[0]][chemin[1]] == false) {
             this.personnage = new Personnage(chemin[0], chemin[1]);
@@ -178,10 +178,10 @@ public class Labyrinthe {
             for (int j = 0; j < murs[0].length; j++) {
                 if ((this.murs[i][j] == true))
                     res += Character.toString(Labyrinthe.MUR);
-                else if ((this.sortie.getDx() == i) && (this.sortie.getDy() == j))
-                    res += Character.toString(Labyrinthe.SORTIE);
                 else if ((this.personnage.getDx() == i) && (this.personnage.getDy() == j))
                     res += Character.toString(Labyrinthe.PJ);
+                else if ((this.sortie.getDx() == i) && (this.sortie.getDy() == j))
+                    res += Character.toString(Labyrinthe.SORTIE);
                 else
                     res += Character.toString(Labyrinthe.VIDE);
             }

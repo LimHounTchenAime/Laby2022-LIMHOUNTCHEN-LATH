@@ -14,9 +14,17 @@ public class MainLaby {
         String direction = sc.nextLine();
 
         while (!l.etreFini() && !direction.equals("exit") ) {
-            l.deplacerPerso(direction);
+            try {
+                l.deplacerPerso(direction);
+            }
+            catch (ActionInconnueException e){
+                System.out.println("action inconnue");
+            }
             System.out.println(l);
-
+            if(l.etreFini()){
+                System.out.println("Vous avez gagne");
+                System.exit(0);
+            }
             System.out.println("Veuillez saisir une direction : ");
             direction = sc.nextLine();
         }

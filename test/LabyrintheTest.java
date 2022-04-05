@@ -81,7 +81,7 @@ class LabyrintheTest {
     }
 
     @Test
-    public void testDeplacerPerso() {
+    public void testDeplacerPerso() throws ActionInconnueException{
         //chargement des donnes
         Labyrinthe labyrinthe=Labyrinthe.chargerLabyrinthe("laby/laby0.txt");
 

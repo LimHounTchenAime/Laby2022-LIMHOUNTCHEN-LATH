@@ -1,6 +1,6 @@
-public class Personnage extends Position {
+class Personnage extends Position {
 
-    Personnage(int x, int y) {
+    public Personnage(int x, int y) {
         super(x, y);
     }
 
