@@ -1,5 +1,5 @@
 # Laby2022-LIMHOUNTCHEN-LATH
-> Binôme:
+> Binôme
 
 - LIM HOUN TCHEN Aime
 - LATH Victor
@@ -20,7 +20,7 @@ Dans l'ensemble,on est resté proche du sujet.
 1. lancer la commande: java MainLabyrinthe laby/nomdulabyrinthe.txt
 2. le programme vous demandera d'écrire une direction("haut","gauche","droite","bas")
 
->Résumé et présentation des tests:
+>Résumé et présentation des tests
   - TestPostion :
     - le but de cette classe de test est de vérifier si la méthode déplacer selon les axes se font dans la bonne direction.
   - LabyrintheTest : 
@@ -39,4 +39,6 @@ Dans l'ensemble,on est resté proche du sujet.
     - testLabyDeuxPersonnage :
       - Test la levé de l'exception FichierIncorrectException lorsque qu'il a 2 de personnages.
     -testDimensionsIncorrectes : 
-      - A pour but de vérifier si les dimensions dans le fichier txt et le labyrinthe correspond au bon nombre de ligne et de colonne. 
+      - A pour but de vérifier si les dimensions dans le fichier txt et le labyrinthe correspond au bon nombre de ligne et de colonne.
+    - testPartieFinie :
+      - Test si la partie est bien fini ou pas fini.
