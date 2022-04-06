@@ -11,7 +11,8 @@ Quelques difficultés sur les tests d'exceptions car on n'avait pas importé les
 dans les tests (voir testLabyDeuxSortie()).
 
 - Explication des choix de programmation :
-Les attributs de Position sont en protected ce qui évite l'utilisation répétitive de setter et guetter..  
+Les attributs de Position sont en protected ce qui évite l'utilisation répétitive de setter et guetter.
+On a également supprimé le catch de l'exception ActionInconnueException de la méthode getSuivant pour pouvoir l'envoyer afin que la methode deplacerPerso puisse la recevoir et l'envoyer à son tour vers les classes de test.
 Dans l'ensemble,on est resté proche du sujet.
 
 
@@ -26,7 +27,7 @@ Dans l'ensemble,on est resté proche du sujet.
     - testChargerLabyrintheLaby()
       - Cette méthode a pour but de vérifier si le labyrinthe est bien chargé.
     - testDeplacerPerso : 
-      - A pour but de vétifier si le déplacement du personnage a bien exécuté en le comparant avec ce qui était prévue . 
+      - A pour but de vétifier si le déplacement du personnage a bien exécuté en le comparant avec ce qui était prévue.
     - testLabyPasDeSortie :
       - Lors des tests, il ya eu un probleme de ligne invisible  "\n" dans les fichiers laby qui n'a pas permis le bon déroulement de la méthode chargerLabyrinthe.
     - testLabyDeuxSortie : 
