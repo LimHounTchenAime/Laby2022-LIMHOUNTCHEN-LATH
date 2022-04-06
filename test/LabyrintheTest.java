@@ -279,4 +279,23 @@ class LabyrintheTest {
         //verification
         assertEquals("direction inconnue", res);
     }
+
+    /**
+     * verifie que la partie est finie quand le personnage arrive a la sortie
+     */
+    @Test
+    public void testPartieFinie() throws FichierIncorrectException, ActionInconnueException, IOException{
+        //initialisation des donnees
+        Labyrinthe labyrinthe=Labyrinthe.chargerLabyrinthe("laby/laby0.txt");
+
+        labyrinthe.deplacerPerso(Labyrinthe.HAUT);
+
+        //verification et methode a tester
+        assertEquals(false, labyrinthe.etreFini());
+
+        labyrinthe.deplacerPerso(Labyrinthe.GAUCHE);
+
+        //verification et methode a tester
+        assertEquals(true, labyrinthe.etreFini());
+    }
 }
