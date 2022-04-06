@@ -81,8 +81,18 @@ public class Labyrinthe {
             BufferedReader br = new BufferedReader(new FileReader(nom));
 
             //on releve le nombre de lignes de lignes et colonnes avec le BufferedReader
-            int ligne = Integer.parseInt(br.readLine());
-            int colonne = Integer.parseInt(br.readLine());
+            int ligne=0;
+            int colonne=0;
+
+            try {
+                 ligne = Integer.parseInt(br.readLine());
+                 colonne = Integer.parseInt(br.readLine());
+            }
+            catch (NumberFormatException e){
+                throw new FichierIncorrectException("pb num ligne ou colonne");
+            }
+
+
 
             //on initialise le nombre de murs et de colonnes du labyrinthe a renvoyer
             res.murs = new boolean[ligne][colonne];

@@ -4,6 +4,9 @@ import java.util.Scanner;
 public class MainLaby {
     public static void main(String[] args) throws IOException, ActionInconnueException {
 
+        if(args.length!=1)
+            throw new Error("le nombre d'arguments est incorrect");
+
         //chargement du labyrinthe et affichage de l'etat initial
         Labyrinthe l = Labyrinthe.chargerLabyrinthe(args[0]);
         System.out.println(l);

@@ -298,4 +298,24 @@ class LabyrintheTest {
         //verification et methode a tester
         assertEquals(true, labyrinthe.etreFini());
     }
+
+    /**
+     * verifie l'envoi de l'exception FichierIncorrectException lorsque le nombre de lignes ou de colonne n'est pas un entier
+     * @throws IOException
+     * @throws ActionInconnueException
+     */
+    @Test
+    public void testLignesReelles() throws IOException, ActionInconnueException{
+        String res="";
+        try {
+            //initialisation des donnees et methode a tester
+            Labyrinthe labyrinthe=Labyrinthe.chargerLabyrinthe("laby/testLignesReelles.txt");
+        }
+        catch (FichierIncorrectException e){
+            res=e.getMessage();
+        }
+
+        //verification
+        assertEquals("pb num ligne ou colonne", res);
+    }
 }
