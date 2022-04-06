@@ -6,4 +6,6 @@ Binôme:
 
 Explication des choix de programmation : 
 - Résumé des tests:
+- 
 - Présentation des tests:
+- Probleme ligne invisible  "\n" dans les fichiers laby 
