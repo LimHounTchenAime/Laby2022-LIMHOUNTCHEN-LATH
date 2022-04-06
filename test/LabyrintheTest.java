@@ -9,6 +9,11 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class LabyrintheTest {
 
+    /**
+     * verifie le bon chargement et affichage du labyrinthe laby0.txt avec le bon format
+     * @throws ActionInconnueException
+     * @throws IOException
+     */
     @Test
     public void testChargerLabyrintheLaby0() throws ActionInconnueException, IOException {
         //chargement des donnees
@@ -18,6 +23,11 @@ class LabyrintheTest {
         assertEquals(labyrinthe.toString(), "XXXXXXX\n" + "XS....X\n" + "X..P..X\n" + "X.....X\n" + "XXXXXXX\n");
     }
 
+    /**
+     * verifie le bon chargement et affichage du labyrinthe laby1.txt avec le bon format
+     * @throws ActionInconnueException
+     * @throws IOException
+     */
     @Test
     public void testChargerLabyrintheLaby1() throws ActionInconnueException, IOException {
         //chargement des donnees
@@ -33,6 +43,11 @@ class LabyrintheTest {
                 "XXXXXXXXXX\n");
     }
 
+    /**
+     * verifie le bon chargement et affichage du labyrinthe laby2.txt avec le bon format
+     * @throws ActionInconnueException
+     * @throws IOException
+     */
     @Test
     public void testChargerLabyrintheLaby2() throws ActionInconnueException, IOException {
         //chargement des donnees
@@ -55,8 +70,11 @@ class LabyrintheTest {
                 "XXXXXXXXXXXXXXXXXXXX\n");
     }
 
+    /**
+     * verifie le bon fonctionnement de la methode getSuivant(int x, int y, String direction)
+     */
     @Test
-    public void testGetSuivant() {
+    public void testGetSuivant() throws ActionInconnueException{
         //initialisation des variables
         int[] test = new int[2];
         test[0] = 0;
@@ -81,6 +99,11 @@ class LabyrintheTest {
         assertArrayEquals(Labyrinthe.getSuivant(1, 2, Labyrinthe.GAUCHE), test);
     }
 
+    /**
+     * test le bon deplacement du personnage dans le labyrinthe
+     * @throws ActionInconnueException
+     * @throws IOException
+     */
     @Test
     public void testDeplacerPerso() throws ActionInconnueException, IOException {
         //chargement des donnes
@@ -127,8 +150,12 @@ class LabyrintheTest {
                 "XXXXXXX\n");
     }
 
+    /**
+     * verifie l'envoi de l'exception FichierIncorrectException lorsque le labyrinthe a deux sorties
+     * @throws IOException
+     */
     @Test
-    public void testLabyDeuxSortie() throws IOException{
+    public void testLabyDeuxSortie() throws IOException, ActionInconnueException{
         String res = "";
         try {
             //initialisation des donnees et methode a tester
@@ -141,8 +168,12 @@ class LabyrintheTest {
         assertEquals("il y a plus d'une sortie dans le labyrinthe", res);
     }
 
+    /**
+     * verifie l'envoi de l'exception FichierIncorrectException lorsque le labyrinthe n'a pas de sortie
+     * @throws IOException
+     */
     @Test
-    public void testLabyPasDeSortie() throws IOException {
+    public void testLabyPasDeSortie() throws IOException, ActionInconnueException{
         String res ="";
         try{
             //initialisation des donnees et methode a tester
@@ -155,8 +186,12 @@ class LabyrintheTest {
         assertEquals("il n'y a pas de sortie ou de personnage", res);
     }
 
+    /**
+     * verifie l'envoi de l'exception FichierIncorrectException lorsque le labyrinthe contient un element eronne
+     * @throws IOException
+     */
     @Test
-    public void testLabyElementIncorrect() throws IOException{
+    public void testLabyElementIncorrect() throws IOException, ActionInconnueException{
         String res ="";
         try {
             //initialisation des donnees et methode a tester
@@ -170,8 +205,12 @@ class LabyrintheTest {
         assertEquals("un element du labyrinthe est inconnu", res);
     }
 
+    /**
+     * verifie l'envoi de l'exception FichierIncorrectException lorsque le labyrinthe ne contient pas de personnage
+     * @throws IOException
+     */
     @Test
-    public void testLabyPasPersonnage() throws IOException{
+    public void testLabyPasPersonnage() throws IOException, ActionInconnueException{
         String res ="";
         try{
             //initialisation des donnees et methode a tester
@@ -184,8 +223,12 @@ class LabyrintheTest {
         assertEquals("il n'y a pas de sortie ou de personnage", res);
     }
 
+    /**
+     * verifie l'envoi de l'exception FichierIncorrectException lorsque le labyrinthe contient deux personnages
+     * @throws IOException
+     */
     @Test
-    public void testLabyDeuxPersonnage() throws IOException{
+    public void testLabyDeuxPersonnage() throws IOException, ActionInconnueException{
         String res ="";
         try{
             //initialisation des donnees et methode a tester
@@ -198,8 +241,12 @@ class LabyrintheTest {
         assertEquals("il y a plus d'un personnage dans le labyrinthe", res);
     }
 
+    /**
+     * verifie l'envoi de l'exception FichierIncorrectException lorsque ne respecte pas les dimensions declarees
+     * @throws IOException
+     */
     @Test
-    public void testDimensionsIncorrectes() throws IOException{
+    public void testDimensionsIncorrectes() throws IOException, ActionInconnueException{
         String res ="";
         try{
             //initialisation des donnees et methode a tester
@@ -210,5 +257,26 @@ class LabyrintheTest {
 
         //verification
         assertEquals("le nombre de lignes/colonnes annonce ne correspond pas au labyrinthe", res);
+    }
+
+    /**
+     * verifie l'envoi de l'exception ActionInconnueException lorsqu'on essaie de deplacer le personnage avec une direction inconnue
+     */
+    @Test
+    public void testDirectionInconnue() throws IOException{
+        String res="";
+        try{
+            //initialisation des donnees
+            Labyrinthe labyrinthe=Labyrinthe.chargerLabyrinthe("laby/laby0.txt");
+
+            //methode a tester
+            labyrinthe.deplacerPerso("test");
+        }
+        catch (ActionInconnueException e){
+            res=e.getMessage();
+        }
+
+        //verification
+        assertEquals("direction inconnue", res);
     }
 }

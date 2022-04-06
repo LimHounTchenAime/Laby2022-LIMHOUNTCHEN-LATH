@@ -43,27 +43,24 @@ public class Labyrinthe {
      * @param action direction (haut, bas, gauche, droite)
      * @return coordonnes de la case voisine
      */
-    public static int[] getSuivant(int x, int y, String action) {
+    public static int[] getSuivant(int x, int y, String action) throws ActionInconnueException {
         int[] res = new int[2];
-        try {
-            if ((!action.equals(Labyrinthe.HAUT)) && (!action.equals(Labyrinthe.BAS)) && (!action.equals(Labyrinthe.GAUCHE)) && (!action.equals(Labyrinthe.DROITE)) && (!action.equals("exit")))
-                throw new ActionInconnueException("direction inconnue");
-            if (action.equals(Labyrinthe.HAUT)) {
-                res[0] = x - 1;
-                res[1] = y;
-            } else if (action.equals(Labyrinthe.BAS)) {
-                res[0] = x + 1;
-                res[1] = y;
-            } else if (action.equals(Labyrinthe.GAUCHE)) {
-                res[0] = x;
-                res[1] = y - 1;
-            } else if (action.equals(Labyrinthe.DROITE)) {
-                res[0] = x;
-                res[1] = y + 1;
-            }
-        } catch (ActionInconnueException e) {
-            System.out.println("action inconnue");
+        if ((!action.equals(Labyrinthe.HAUT)) && (!action.equals(Labyrinthe.BAS)) && (!action.equals(Labyrinthe.GAUCHE)) && (!action.equals(Labyrinthe.DROITE)) && (!action.equals("exit")))
+            throw new ActionInconnueException("direction inconnue");
+        if (action.equals(Labyrinthe.HAUT)) {
+            res[0] = x - 1;
+            res[1] = y;
+        } else if (action.equals(Labyrinthe.BAS)) {
+            res[0] = x + 1;
+            res[1] = y;
+        } else if (action.equals(Labyrinthe.GAUCHE)) {
+            res[0] = x;
+            res[1] = y - 1;
+        } else if (action.equals(Labyrinthe.DROITE)) {
+            res[0] = x;
+            res[1] = y + 1;
         }
+
         return res;
     }
 
@@ -73,7 +70,7 @@ public class Labyrinthe {
      * @param nom nom du fichier
      * @return labyrinthe charge
      */
-    public static Labyrinthe chargerLabyrinthe(String nom) throws FichierIncorrectException, IOException{
+    public static Labyrinthe chargerLabyrinthe(String nom) throws FichierIncorrectException, IOException, ActionInconnueException {
 
         //on cree un labyrinthe
         Labyrinthe res = new Labyrinthe();
