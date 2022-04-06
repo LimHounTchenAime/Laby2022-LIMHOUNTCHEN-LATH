@@ -129,6 +129,7 @@ class LabyrintheTest {
 
     @Test
     public void testLabyDeuxSortie() throws IOException{
+        //test la detection d'un labyrinthe avec 2 sortie
         String res = "";
         try {
             //initialisation des donnees et methode a tester
@@ -143,6 +144,7 @@ class LabyrintheTest {
 
     @Test
     public void testLabyPasDeSortie() throws IOException {
+        //test la detection d'un labyrinthe sans sortie
         String res ="";
         try{
             //initialisation des donnees et methode a tester
