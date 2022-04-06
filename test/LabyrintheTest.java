@@ -131,24 +131,84 @@ class LabyrintheTest {
     public void testLabyDeuxSortie() throws IOException{
         String res = "";
         try {
+            //initialisation des donnees et methode a tester
             Labyrinthe labyrinthe = Labyrinthe.chargerLabyrinthe("laby/laby_deuxSortie.txt");
         } catch (FichierIncorrectException e) {
             res = e.getMessage();
         }
 
         //verification
-        assertEquals(res, "il y a plus d'une sortie dans le labyrinthe");
+        assertEquals("il y a plus d'une sortie dans le labyrinthe", res);
     }
 
     @Test
     public void testLabyPasDeSortie() throws IOException {
         String res ="";
         try{
+            //initialisation des donnees et methode a tester
             Labyrinthe l = Labyrinthe.chargerLabyrinthe("laby/laby_pasSortie.txt");
         }catch (FichierIncorrectException fie){
            res = fie.getMessage();
         }
 
+        //verification
         assertEquals("il n'y a pas de sortie ou de personnage", res);
+    }
+
+    @Test
+    public void testLabyElementIncorrect() throws IOException{
+        String res ="";
+        try {
+            //initialisation des donnees et methode a tester
+            Labyrinthe labyrinthe = Labyrinthe.chargerLabyrinthe("laby/testLabyElementIncorrect.txt");
+        }
+        catch (FichierIncorrectException e){
+            res = e.getMessage();
+        }
+
+        //verification
+        assertEquals("un element du labyrinthe est inconnu", res);
+    }
+
+    @Test
+    public void testLabyPasPersonnage() throws IOException{
+        String res ="";
+        try{
+            //initialisation des donnees et methode a tester
+            Labyrinthe l = Labyrinthe.chargerLabyrinthe("laby/testLabyPasPersonnage.txt");
+        }catch (FichierIncorrectException e){
+            res = e.getMessage();
+        }
+
+        //verification
+        assertEquals("il n'y a pas de sortie ou de personnage", res);
+    }
+
+    @Test
+    public void testLabyDeuxPersonnage() throws IOException{
+        String res ="";
+        try{
+            //initialisation des donnees et methode a tester
+            Labyrinthe l = Labyrinthe.chargerLabyrinthe("laby/testLabyDeuxPersonnages.txt");
+        }catch (FichierIncorrectException e){
+            res = e.getMessage();
+        }
+
+        //verification
+        assertEquals("il y a plus d'un personnage dans le labyrinthe", res);
+    }
+
+    @Test
+    public void testDimensionsIncorrectes() throws IOException{
+        String res ="";
+        try{
+            //initialisation des donnees et methode a tester
+            Labyrinthe l = Labyrinthe.chargerLabyrinthe("laby/testDimensionsIncorrectes.txt");
+        }catch (FichierIncorrectException e){
+            res = e.getMessage();
+        }
+
+        //verification
+        assertEquals("le nombre de lignes/colonnes annonce ne correspond pas au labyrinthe", res);
     }
 }
