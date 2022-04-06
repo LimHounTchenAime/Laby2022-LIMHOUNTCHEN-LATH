@@ -38,7 +38,9 @@ Dans l'ensemble,on est resté proche du sujet.
       - Test la levé de l'exception FichierIncorrectException lorsque qu'il n'y a pas de personnage.
     - testLabyDeuxPersonnage :
       - Test la levé de l'exception FichierIncorrectException lorsque qu'il a 2 de personnages.
-    -testDimensionsIncorrectes : 
+    - testDimensionsIncorrectes : 
       - A pour but de vérifier si les dimensions dans le fichier txt et le labyrinthe correspond au bon nombre de ligne et de colonne.
     - testPartieFinie :
       - Test si la partie est bien fini ou pas fini.
+    - testLignesReelles:
+      - verifie l'envoi de l'exception FichierIncorrectException lorsque le nombre de lignes ou de colonne n'est pas un entier
